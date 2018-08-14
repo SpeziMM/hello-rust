@@ -33,27 +33,21 @@ impl Rechnen {
 
 fn main() {
 
-	
-	
-    println!("Bitte gib deine erst zahl an.");
-    let mut guess1 = String::new();
-    io::stdin().read_line(&mut guess1)
-        .expect("Failed to read line");
-		let m = "2";
-	let guess_int = guess1.as_str().parse::<i32>().unwrap();
-	println!("{}",guess_int+1);
-		//
-		//
-    println!("Bitte gib deine zweite zahl an.");
-    let mut guess2 = String::new();
-    io::stdin().read_line(&mut guess2)
-        .expect("Failed to read line");
-		//
-		//
-	    println!("Bitte gib deine dritte zahl an.");
-	    let mut guess3 = String::new();
-	    io::stdin().read_line(&mut guess3)
-	        .expect("Failed to read line");
+    loop {
+	    let mut guess = String::new();
+
+	           io::stdin().read_line(&mut guess)
+	               .expect("Failed to read line");
 		
+       
+           let guess: u32 = match guess.trim().parse() {
+               Ok(num) => num,
+               Err(_) => continue,
+           };
+
+           println!("You guessed: {}", guess+1);
+
+                   break;
+               }
 		}
 	
